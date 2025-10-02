@@ -1,0 +1,21 @@
+ 
+workflows:
+  ios-workflow:
+    name: Build iOS App
+    environment:
+      flutter: stable
+    scripts:
+      - name: Get Flutter packages
+        script: |
+          flutter pub get
+      - name: Build iOS
+        script: |
+          flutter build ios --no-codesign
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      email:
+        recipients:
+          - hamasha167@gmail.com
+
+          
